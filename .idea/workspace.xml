@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="70cfbbd2-4dd0-4397-b771-a1344dfe9af3" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1csr9vHULNJvQbRuEIaRVxrjXyV" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../blog_app" />
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Shubham\dev\my_restraunt\src" />
+      <recent name="C:\Users\Shubham\dev\my_restraunt\src\home\templates\home" />
+      <recent name="C:\Users\Shubham\dev\my_restraunt\src\home\static\home" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Shubham\dev\my_restraunt\src\home\fixtures" />
+      <recent name="C:\Users\Shubham\dev\my_restraunt\src\home\static\home\images" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="showServicesTree" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="70cfbbd2-4dd0-4397-b771-a1344dfe9af3" name="Default Changelist" comment="" />
+      <created>1591327993106</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591327993106</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="508" y="220" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591462982918">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="508" y="220" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.834@0.0.1536.834" timestamp="1591462982918" />
+    <state x="640" y="261" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1594887214596">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="640" y="261" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1594887214596" />
+    <state x="1221" y="392" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1595003785153">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="1221" y="392" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1050@0.0.1920.1050" timestamp="1595003785153" />
+    <state x="686" y="217" key="FileChooserDialogImpl" timestamp="1595046904104">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1591588426682" />
+    <state x="686" y="217" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1595046904104" />
+    <state x="461" y="167" key="SettingsEditor" timestamp="1594965880851">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="461" y="167" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1594965880851" />
+    <state x="1091" y="303" key="com.intellij.ide.util.TipDialog" timestamp="1595042908497">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="873" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1591587286135" />
+    <state x="1091" y="303" key="com.intellij.ide.util.TipDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1595042908497" />
+    <state x="634" y="246" width="607" height="804" key="find.popup" timestamp="1595003835117">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="634" y="246" width="607" height="804" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1595003835117" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1595014521307">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1595014521307" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/order/views.py</url>
+          <line>42</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

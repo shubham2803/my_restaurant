@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en">
+
+<head>
+    <title>Tasty - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'home/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/checkout.css' %}">
+</head>
+</head>
+
+<body>
+    <!-- Navbar Starts -->
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light scrolled awake"
+        id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/">Tasty</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a href="{% url 'home:index' %}" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="{% url 'home:menu' %}" class="nav-link">Menu</a></li>
+                    <li class="nav-item"><a href="specialties.html" class="nav-link">Specialties</a></li>
+                    <li class="nav-item"><a href="reservation.html" class="nav-link">Reservation</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar Ends -->
+
+    <div class="order-display">
+
+        <!-- Order Details section Starts -->
+        <div class="box1 box-inner-gap" id="order-detail">
+            <div class="box-inner-section" id="checkout-dishes-list">
+                <div id="vertical-head">
+                    <span><h5>ORDER DETAILS:</h5></span>
+                    <button class="btn btn-outline-primary add-more-dishes">
+                        <a href="/menu#menu-list-container">&#8592; Add More</a>
+                    </button>
+                </div>
+                <hr>
+                <div id="dish-list">
+                    <ul class="dish-details">
+                        {% for dish in dishes %}
+                        {% if not dish.totalBill %}
+                            <li class="zero-display" id="dish-0-{{dish.dishId}}">
+                                <span class="quantity" id="dish-{{dish.dishId}}-quantity">{{dish.dishQuantity}} x</span>
+                                <span class="name" id="dish-{{dish.dishId}}-name">{{dish.dishName}}</span> 
+                                <span class="cost" id="dish-{{dish.dishId}}-cost">&#8377; {{dish.dishCost}}</span>
+                                <div class="right-corner">
+                                    <span class="total" id="dish-{{dish.dishId}}-total">&#8377; {{dish.dishTotal}}</span>
+                                    <span id="edit-buttons">
+                                        <button class="edit-btn" id="minus-{{dish.dishId}}" value="-{{dish.dishId}}"><a class="add-link" href="">-</a></button>
+                                        <button class="edit-btn" id="add-{{dish.dishId}}" value="{{dish.dishId}}"><a class="add-link" href="">+</a></button>
+                                    </span>
+                                </div>
+                            </li>
+                        {% else %}
+                            <hr>
+                            <li>
+                                <span id="total-text">Total :</span>
+                                <span id="bill-text">&#8377; {{dish.totalBill}}</span>
+                            </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+                <hr>
+                <div class="make-payment">
+                    <button class="btn btn-outline-primary" id="payment">Proceed to Pay</button>
+                </div>
+            </div>
+        </div>
+        <!-- Order Details Ends -->
+
+        <!-- Order Status Starts -->
+        <div class="box2 box-inner-gap" id="ordered-section">
+            <div class="ordered-status box-inner-section">
+                <div id="address-heading">
+                    <h5>ADDRESS : </h5>
+                    <a href="#">EDIT</a>
+                </div>
+                <div id="address" class="test-box display-address">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, minus veritatis! Cupiditate,
+                        aut asperiores fuga earum ut placeat labore nobis.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Order Status Ends -->
+
+        <!-- Preparation Status Starts -->
+        <div class="box2 box-inner-gap" id="preparing-section">
+            <div class="test-box box-inner-section">
+                Preparing..
+            </div>
+        </div>
+        <!-- Preparation Status Ends -->
+
+        <!-- Delivery Status Starts -->
+        <div class="box2 box-inner-gap" id="delivery-section">
+            <div class="test-box box-inner-section">
+                Delivering..
+            </div>
+        </div>
+        <!-- Delivery Status Ends -->
+
+    </div>
+
+</body>
+<script src="{% static 'home/js/jquery.min.js' %}"></script>
+<script src="{% static 'home/js/jquery-migrate-3.0.1.min.js' %}"></script>
+<script src="{% static 'home/js/jquery.easing.1.3.js' %}"></script>
+<script src="{% static 'home/js/jquery.stellar.min.js' %}"></script>
+<script src="{% static 'home/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'home/js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'home/js/jquery.animateNumber.min.js' %}"></script>
+<script src="{% static 'home/js/bootstrap-datepicker.js' %}"></script>
+<script src="{% static 'home/js/jquery.timepicker.min.js' %}"></script>
+<script src="{% static 'home/js/checkout.js' %}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</html>

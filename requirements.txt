@@ -1,0 +1,6 @@
+Django
+django-bootstrap4
+django-summernote
+django-taggit
+Pillow
+pytz

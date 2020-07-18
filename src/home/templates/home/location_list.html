@@ -1,0 +1,36 @@
+{% load static %}
+
+<head>
+    <title> Home Page </title>
+    <link rel="stylesheet" href="{% static 'home/css/homePage.css' %}">
+</head>
+
+
+<body>
+
+    <div class="navbar">
+        <a href="#"> Home </a>
+        <a href="#"> Menu </a>
+        <a href="#"> Locations </a>
+        <a href="#"> Dine In </a>
+        <a href="#" style="float:right"> About Us </a>
+    </div>
+
+
+    <div style="margin: 10 10 2 10;background-color:#E5E8E8;padding:15px">
+        <h1 class="center-align"> {{ title }}</h1>
+        <p class="center-align"> {{content}} </p>
+        <h3 class="center-align" style="font-family:Arial Black"> HAPPY EATING! </h3>
+    </div>
+
+    <div class="select" style="margin:2 10 2 10">
+        <label> Location </label>
+       <select style="margin:2 10 2 10" name="format" id="format">
+          <option selected disabled>City</option>
+          {% for location in locations%}
+           <option value="{{location.city}}"> {{location.city}} </option>
+           {% endfor %}
+       </select>
+    </div>
+
+</body>

@@ -1,0 +1,1 @@
+[{"model": "home.category", "pk": 1, "fields": {"name": "North Indian", "origin_text": "This is north Indian dish."}}, {"model": "home.category", "pk": 2, "fields": {"name": "Dessert", "origin_text": "This is a dessert."}}, {"model": "home.category", "pk": 3, "fields": {"name": "Starter", "origin_text": "This is a starter."}}]

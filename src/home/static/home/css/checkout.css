@@ -1,0 +1,249 @@
+p{
+    margin: 0;
+}
+
+
+.order-display{
+    background:#FFF;
+    margin: 7rem 3rem auto;
+    display: grid;
+    gap: 1vh;
+    grid-template-areas: 
+    "h-box1 h-box1 v-box"
+    "h-box2 h-box2 v-box"
+    "h-box3 h-box3 v-box";
+    grid-gap: 10px;
+    padding: 10px;
+    }
+
+.test-box {
+    border: 1px solid red;
+}
+
+.box1 {
+    display: inline-block;
+    width:33vw;
+    min-height:77vh;
+}
+
+.box2 {
+    display: inline-block;
+    width:60vw;
+    min-height:25vh;
+    background:#FFF;    
+}
+
+.box-inner-gap {
+    padding: 1rem 1rem;
+}
+.box-inner-section {
+    height:auto;
+    box-shadow: 1px 3px 6px;
+    display: grid;
+
+}
+.box-inner-section>div {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px 5px;
+}
+.box-inner-section>hr {
+    border: 0;
+    clear:both;
+    display:block;
+    width: 96%;               
+    background-color:#ffb400;
+    height: 1px;
+    padding: 0;
+    margin: 0 5px; 
+}
+
+
+/* Order Details */
+#order-detail {
+    grid-area: v-box;
+}
+
+#checkout-dishes-list{
+    display: flex;
+    flex-direction: column;
+}
+
+    #vertical-head {
+        height: 4rem;
+        position: relative;
+    }
+    #vertical-head>span, #verical-head>button {
+        position: absolute;
+        width: 50%;
+        bottom: 0;
+    }
+    
+    #vertical-head >  button {
+        position: absolute;
+        right: 18px;
+        bottom: 11px;
+        border-color: #007bff;
+        color: #007bff;
+    }
+    #vertical-head >  button:hover {
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+    #vertical-head > button > a{
+        color: #007bff;
+    }
+    #vertical-head > button > a:hover{
+        color: #fff;
+    }
+
+
+    #dish-list {
+        margin: 10px;
+    }
+        #dish-list .dish-details {
+            list-style: none;
+            margin: 0;
+            padding: 0; 
+            line-height:1.8;
+        }
+        #dish-list .dish-details>li {
+            margin: 8px;
+        }
+            #dish-list .dish-details .zero-display {
+
+            }
+            #dish-list .dish-details .zero-display>span {
+            }
+            #dish-list .dish-details .edit-display {
+                display: none;
+            }
+            span.quantity {
+                color:black;
+            }
+            span.name {
+                color: #673ab7;
+                font-style: italic;
+            }
+            span.cost {
+                font-style: italic;
+                display: none;
+            }
+            div.right-corner {
+                float: right;
+            }
+                span.total {
+                    text-align: right;
+                }
+                span#edit-buttons {
+                    margin: 4px 10px;
+                }
+                button.edit-btn {
+                    border:none;
+                    line-height: 20px;
+                    text-align: center;
+                }
+                button.edit-btn>a {
+                    color: blue;
+                }
+                button.edit-btn  {
+                    border:none;
+                    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+                    6px 6px 10px rgba(0, 0, 0, 0.2);
+                    color: #6f6cde;
+                    background-color: #ffb400;
+                    margin: 3px;
+                }
+                button.edit-btn:hover {
+                    border:none;
+                    opacity: 0.3;
+                    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+                        6px 6px 10px rgba(0, 0, 0, 0.2);
+                }
+                button.edit-btn :active {
+                    border:none;
+                    opacity: 1;
+                    box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+                        inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+                    color: #79e3b6;
+                }
+            #total-text {
+                color: black;
+                font-style: italic;
+            }
+            #bill-text {
+                float: right;
+                color: black;
+                font-weight: bold;
+                margin : auto 10px;
+            }
+
+    .make-payment {
+        justify-content: center;
+        align-items: center;
+        color: black;
+        position: relative;
+        min-height: 4rem;
+    }
+    #payment {
+        position: absolute;
+        margin: auto;
+        top: 12px;
+        right: 18px;
+    }
+    .btn-outline-primary {
+        color: #1d1c1a;
+        background-color: transparent;
+        background-image: none;
+        border-color: #ffb400;
+    }
+    
+                
+
+
+/* Inner Order Status */
+#ordered-section {
+    grid-area: h-box1;
+}
+
+.ordered-status {
+    display: grid;
+    gap:0px;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    'address-head address-head'
+    'address address'
+    'address address'
+    'address address'
+    '. .'
+    '. .';
+}
+
+#address-heading {
+    grid-area: address-head;
+    display: block;
+    max-height: fit-content;
+    align-items: center;
+    /* height: 40px; */
+}
+#address-heading h5 {
+    display: inline-block;
+    padding: 10px 5px 2px 5px;
+}
+
+#address {
+    grid-area: address;
+}
+
+/* Inner Prepared Status */
+#preparing-section {
+    grid-area: h-box2;
+    /* border: 1px solid black; */
+}
+
+/* Inner Delivery Status */
+#delivery-section {
+    grid-area: h-box3;
+    /* border: 1px solid black; */
+
+}

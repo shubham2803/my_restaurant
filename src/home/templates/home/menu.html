@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <title>Tasty - Free Bootstrap 4 Template by Colorlib</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'home/css/open-iconic-bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'home/css/animate.css' %}">
+
+  <link rel="stylesheet" href="{% static 'home/css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'home/css/owl.theme.default.min.css' %}">
+  <link rel="stylesheet" href="{% static 'home/css/magnific-popup.css' %}">
+
+  <link rel="stylesheet" href="{% static 'home/css/aos.css' %}">
+
+  <link rel="stylesheet" href="{% static 'home/css/ionicons.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'home/css/bootstrap-datepicker.css' %}">
+  <link rel="stylesheet" href="{% static 'home/css/jquery.timepicker.css' %}">
+
+
+  <link rel="stylesheet" href="{% static 'home/css/flaticon.css' %}">
+  <link rel="stylesheet" href="{% static 'home/css/icomoon.css' %}">
+  <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'home/css/menu.css' %}">
+</head>
+
+<body style="max-width: 100%;overflow-x: hidden;">
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Tasty</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="menu.html" class="nav-link">Menu</a></li>
+          <li class="nav-item"><a href="specialties.html" class="nav-link">Specialties</a></li>
+          <li class="nav-item"><a href="reservation.html" class="nav-link">Reservation</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- END nav -->
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home:index' %}">Tasty</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active"><a href="{% url 'home:index' %}" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="{% url 'home:menu' %}" class="nav-link">Menu</a></li>
+          <li class="nav-item"><a href="specialties.html" class="nav-link">Specialties</a></li>
+          <li class="nav-item"><a href="reservation.html" class="nav-link">Reservation</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- END nav -->
+
+  <section class="home-slider owl-carousel">
+    <div class="slider-item" style="background-image: url('{% static 'home/images/bg_1.jpg' %}');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row slider-text align-items-center justify-content-center text-center">
+          <div class="col-md-10 col-sm-12 ftco-animate">
+            <h1 class="mb-3">Book a table for yourself at a time convenient for you</h1>
+            <p><a href="reservation.html" class="btn btn-primary btn-outline-white px-5 py-3">Book a table</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slider-item" style="background-image: url('{% static 'home/images/bg_2.jpg' %}');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row slider-text align-items-center justify-content-center text-center">
+          <div class="col-md-10 col-sm-12 ftco-animate">
+            <h1 class="mb-3">Tasty &amp; Delicious Food</h1>
+            <p><a href="reservation.html" class="btn btn-primary btn-outline-white px-5 py-3">Book a table</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slider-item" style="background-image: url('{% static 'home/images/bg_3.jpg' %}');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row slider-text align-items-center justify-content-center text-center">
+          <div class="col-md-10 col-sm-12 ftco-animate">
+            <h1 class="mb-3">Book a table for yourself at a time convenient for you</h1>
+            <p><a href="reservation.html" class="btn btn-primary btn-outline-white px-5 py-3">Book a table</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END slider -->
+
+
+  <!-- MENU DISPLAY -->
+  <section id="menu-display">
+
+
+    <!-- LEFT SIDEBAR -->
+    <div id="left-sidebar">
+
+      {% for type in dish_types %}
+      <a href="#{{type}}"> {{type}} </a>
+      {% endfor %}
+
+    </div>
+    <!-- END LEFT SIDEBAR -->
+
+    <div id="menu-list-container">
+      <div class="menu-item" id="Starter">
+        <h3>STARTERS</h3>
+        {% for dish in dishes %}
+        {% if dish.type == 'Starter' %}
+        <div class="menu-card">
+          <img class="dish-card" alt="Dish Image" src="{{ dish.imageUrl }}">
+          <p class="item"><strong> {{ dish.dish }}</strong></p>
+          <div class="dish-detail">
+            <p class="price">&#8377; {{ dish.cost }} </p>
+            <div class="add-quantity-1" id="dish-0-{{dish.id}}" >
+              <button class="add-to-cart" type="submit" form="form1" value="{{dish.id}}">Add</button>
+            </div>
+            <div class="add-quantity-2" id="dish-1-{{dish.id}}" >
+              <button class="add-to-cart" type="submit" form="form1" value="{{dish.id}}">+</button>
+              <span class="show-quantity" id="show-quantity-{{dish.id}}" ></span>
+              <button class="add-to-cart" type="submit" form="form1" value="-{{dish.id}}">-</button>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+      <div class="menu-item" id="Main">
+        <h3>Main</h3>
+        {% for dish in dishes %}
+        {% if dish.type == 'Main' %}
+        <div class="menu-card">
+          <img class="dish-card" alt="Dish Image" src="{{ dish.imageUrl }}">
+          <p class="item"><strong> {{ dish.dish }}</strong></p>
+          <div class="dish-detail">
+            <p class="price">&#8377; {{ dish.cost }} </p>
+            <div class="add-quantity-1" id="dish-0-{{dish.id}}">
+              <button class="add-to-cart" type="submit" form="form1" value="{{dish.id}}">Add</button>
+            </div>
+            <div class="add-quantity-2" id="dish-1-{{dish.id}}">
+              <button class="add-to-cart" type="submit" form="form1" value="{{dish.id}}">+</button>
+              <span class="show-quantity" id="show-quantity-{{dish.id}}" ></span>
+              <button class="add-to-cart" type="submit" form="form1" value="-{{dish.id}}">-</button>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+      <div class="menu-item" id="Dessert">
+        <h3>Dessert</h3>
+        {% for dish in dishes %}
+        {% if dish.type == 'Dessert' %}
+        <div class="menu-card">
+          <img class="dish-card" alt="Dish Image" src="{{ dish.imageUrl }}">
+          <p class="item"><strong> {{ dish.dish }}</strong></p>
+          <div class="dish-detail">
+            <p class="price">&#8377; {{ dish.cost }} </p>
+            <div class="add-quantity-1" id="dish-0-{{dish.id}}">
+              <button class="add-to-cart" type="submit" form="form1" value="{{dish.id}}">Add</button>
+            </div>
+            <div class="add-quantity-2" id="dish-1-{{dish.id}}">
+              <button class="add-to-cart" type="submit" form="form1" value="{{dish.id}}">+</button>
+              <span class="show-quantity" id="show-quantity-{{dish.id}}" ></span>
+              <button class="add-to-cart" type="submit" form="form1" value="-{{dish.id}}">-</button>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+
+
+    <div id="right-sidebar">
+      <div class="order-item">
+        <strong class="dish-name">
+          DishName
+        </strong>
+
+        <strong class="dish-cost">
+          45
+        </strong>
+      </div>
+      <button id="check-out" value="checkout"><a id="check-out-link" href="{% url 'home:check-out' %}">CHECKOUT</a></button>
+      </div>
+
+  </section>
+  <!-- END MENU DISPLAY -->
+
+
+  <div class="row">
+    <div class="col-md-12 text-center">
+
+      <p>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        Copyright &copy;
+        <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i
+          class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+      </p>
+    </div>
+  </div>
+  </div>
+  </footer>
+
+
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+        stroke="#F96D00" /></svg></div>
+
+
+  <script src="{% static 'home/js/jquery.min.js' %}"></script>
+  <script src="{% static 'home/js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'home/js/popper.min.js' %}"></script>
+  <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'home/js/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static 'home/js/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'home/js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'home/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'home/js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'home/js/aos.js' %}"></script>
+  <script src="{% static 'home/js/jquery.animateNumber.min.js' %}"></script>
+  <script src="{% static 'home/js/bootstrap-datepicker.js' %}"></script>
+  <script src="{% static 'home/js/jquery.timepicker.min.js' %}"></script>
+  <script
+    src="{% static 'home/https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false' %}"></script>
+  <script src="{% static 'home/js/google-map.js' %}"></script>
+  <script src="{% static 'home/js/main.js' %}"></script>
+
+</body>
+
+</html>
