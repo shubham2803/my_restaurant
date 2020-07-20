@@ -93,13 +93,76 @@
         <!-- Order Status Starts -->
         <div class="box2 box-inner-gap" id="ordered-section">
             <div class="ordered-status box-inner-section">
-                <div id="address-heading">
-                    <h5>ADDRESS : </h5>
-                    <a href="#">EDIT</a>
-                </div>
                 <div id="address" class="test-box display-address">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, minus veritatis! Cupiditate,
-                        aut asperiores fuga earum ut placeat labore nobis.</p>
+                    <div id="address-heading">
+                        <h5>ADDRESS : </h5>
+                        <span>{{address.label}} <button>Change Default</button></span>
+                    </div>
+                    <hr>
+                    {% if address %}
+                    <div id="address-display">
+
+                        <div id="address-text">
+                            <p>
+                                {{address.line1}}, {{address.area}}
+                            </p>
+                            <p>
+                                {{address.city}}, {{address.state}}
+                            </p>
+                            <p>
+                                {{address.country}}
+                            </p>
+                            <p>
+                                {{address.pinCode}}
+                            </p>
+                        <a class="left-form" id="edit-address" href="#">EDIT</a>
+                        </div>
+
+                        <form action="" id="edit-address-form">
+                            <input class="left-form" type="hidden" id="id" name="id" value="{{ address.id }}">
+                        <input class="left-form" type="text" id="label" name="label" placeholder="Label" value="{{ address.label }}">
+                        <p>
+                            <input class="left-form" type="text" name="line1" placeholder="House/Flat No." value="{{address.line1}}">
+                            <input class="right-form" type="text" name="area" placeholder="Street No/Area" value="{{address.area}}">
+                        </p>
+                        <p>
+                            <input class="left-form" type="text" name="city" placeholder="City" value="{{address.city}}">
+                            <input class="right-form" type="text" name="state" placeholder="State" value="{{address.state}}">
+                        </p>
+                        <p>
+                            <input class="left-form" type="text" name="pincode" placeholder="Pin Code" value="{{address.pinCode}}">
+                            <input class="right-form" type="text" name="country" placeholder="Country" value="{{address.country}}">
+                        </p>
+                        <input class="left-form" type="submit" id="address-btn" value="Save">
+                        </form>
+
+                    </div>
+                    {% else %}
+                    <form action="" method="POST" id="add-address-form">
+                        {% csrf_token %}
+                        <p class="left-form">
+                            <input type="radio" name="label" id="" value="Home">
+                            <label for="home">Home</label>
+                            <input type="radio" name="label" id=""  value="Work">
+                            <label for="work">Work</label>
+                            <input type="radio" name="label" id="" value="Other">
+                            <label for="Other">Other</label>
+                        </p>
+                        <p>
+                            <input class="left-form" type="text" name="line1" placeholder="House/Flat No.">
+                            <input class="right-form" type="text" name="area" placeholder="Street No/Area">
+                        </p>
+                        <p>
+                        <input class="left-form" type="text" name="city" placeholder="City">
+                        <input class="right-form" type="text" name="state" placeholder="State">
+                        </p>
+                        <p>
+                        <input class="left-form" type="text" name="pincode" placeholder="Pin Code">
+                        <input class="right-form" type="text" name="country" placeholder="Country">
+                        </p>
+                        <input class="left-form" type="submit" id="address-btn" value="Save">
+                    </form>
+                    {% endif %}
                 </div>
             </div>
         </div>

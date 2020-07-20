@@ -219,6 +219,7 @@ p{
     '. .';
 }
 
+
 #address-heading {
     grid-area: address-head;
     display: block;
@@ -228,11 +229,38 @@ p{
 }
 #address-heading h5 {
     display: inline-block;
-    padding: 10px 5px 2px 5px;
+    padding: 2px 2px 2px 10px;
+    margin : 0;
 }
 
 #address {
     grid-area: address;
+}
+
+#address > hr {
+    margin: 5px;
+}
+
+#address-text {
+    /* display:none; */
+   /* display:inlin; */
+}
+
+#address-text>p {
+    margin: auto 1rem;
+    color: black;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.8rem;
+    left: 1rem;
+
+}
+
+#add-address-form {
+    /* display:none; */
+}
+
+.left-form {
+    margin: 0.25rem 3rem 0.25rem 1rem;
 }
 
 /* Inner Prepared Status */

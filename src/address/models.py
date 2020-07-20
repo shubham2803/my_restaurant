@@ -4,7 +4,6 @@ from accounts.models import Customer
 
 
 class AddressList(models.Model):
-    label = models.CharField(max_length=20, default='home')
     address = models.ManyToManyField('Address')
     customer = models.OneToOneField(Customer, on_delete=models.CASCADE)
 
@@ -12,6 +11,7 @@ class AddressList(models.Model):
 class Address(models.Model):
     # label = models.CharField(max_length=15, default='Home')
     # buyer = models.ForeignKey('Customer', on_delete=models.CASCADE, default=None)
+    label = models.CharField(max_length=20, default='home')
     isDefault = models.BooleanField(default=False)
     line1 = models.CharField(max_length=50, null=True)
     area = models.CharField(max_length=50, null=True)

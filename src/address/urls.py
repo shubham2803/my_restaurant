@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import addAddressView
+from .views import addAddressView, editAddress
 
 urlpatterns = [
-    path('new/', addAddressView, name='add-address')
+    path('new/', addAddressView, name='add-address'),
+    path('edit/', editAddress, name='edit-address'),
 ]
 

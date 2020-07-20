@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Restraunt, Menu, Branch, Dish, Category
 from order.models import OrderItem, Order, Customer
-
+from address.models import Address, AddressList
 # Create your views here.
 
 
@@ -34,7 +34,6 @@ def menuPageView(request):
         if dish.type not in dish_types:
             dish_types.append(dish.type)
 
-
     context = {
         'dishes': dishes,
         'dish_types' : dish_types,
@@ -46,9 +45,23 @@ def menuPageView(request):
 def checkOutPageView(request):
     customer = request.user
     order = Order.objects.get(customer=customer)
-
+    addressList = AddressList.objects.get(customer=customer)
+    print(addressList.address.all())
     dishDict = {}
     dishList = []
+    addresses = []
+    for item in list(addressList.address.all()):
+        print(item.__dict__)
+        addresses.append(item)
+        print(item.id)
+        print(item.label.lower().title())
+        print(item.line1)
+        print(item.area.lower().title())
+        print(item.city.lower().title())
+        print(item.state.lower().title())
+        print(item.pinCode)
+        print(item.country.lower().title())
+
 
     if request.method == "GET":
         orderItem = OrderItem.objects.filter(order=order)
@@ -64,15 +77,15 @@ def checkOutPageView(request):
             dishDict["dishCost"] = dishCost
             dishDict["dishQuantity"] = dishQuantity
             dishDict["dishTotal"] = dishTotal
-
-            # print("dishId : ", dishId, " dishName : ", dishName, " dishCost : ", dishCost, " dishQuantity : ", dishQuantity)
             dishList.append(dishDict)
             dishDict = {}
+            # print("dishId : ", dishId, " dishName : ", dishName, " dishCost : ", dishCost, " dishQuantity : ",
+            # dishQuantity)
         dishDict["totalBill"] = order.get_bill
         dishList.append(dishDict)
 
         print(dishList)
-    return render(request, 'home/checkout.html', { 'dishes' : dishList })
+    return render(request, 'home/checkout.html', {'addresses': addresses, 'dishes': dishList})
 
 
 
