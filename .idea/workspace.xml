@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70cfbbd2-4dd0-4397-b771-a1344dfe9af3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/address/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/address/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/address/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/address/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/address/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/address/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.sqlite3" afterDir="false" />
@@ -97,11 +95,11 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="461" y="167" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1594965880851" />
-    <state x="1091" y="303" key="com.intellij.ide.util.TipDialog" timestamp="1595257187139">
+    <state x="1091" y="303" key="com.intellij.ide.util.TipDialog" timestamp="1595349374723">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="873" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1591587286135" />
-    <state x="1091" y="303" key="com.intellij.ide.util.TipDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1595257187139" />
+    <state x="1091" y="303" key="com.intellij.ide.util.TipDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1595349374723" />
     <state x="634" y="246" width="607" height="804" key="find.popup" timestamp="1595003835117">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

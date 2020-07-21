@@ -1,7 +1,9 @@
 p{
     margin: 0;
 }
-
+i {
+    margin-right: 10px;
+}
 
 .order-display{
     background:#FFF;
@@ -17,7 +19,7 @@ p{
     }
 
 .test-box {
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .box1 {
@@ -201,66 +203,144 @@ p{
                 
 
 
-/* Inner Order Status */
+  /**********************/
+ /* Inner Order Status */
+/**********************/
+
 #ordered-section {
     grid-area: h-box1;
 }
-
-.ordered-status {
-    display: grid;
-    gap:0px;
-    grid-template-rows: auto;
-    grid-template-areas: 
-    'address-head address-head'
-    'address address'
-    'address address'
-    'address address'
-    '. .'
-    '. .';
+#address{
+    padding: 0px;
+    border: 1.2px solid #007bff45;
 }
 
-
-#address-heading {
-    grid-area: address-head;
-    display: block;
-    max-height: fit-content;
-    align-items: center;
-    /* height: 40px; */
-}
-#address-heading h5 {
-    display: inline-block;
-    padding: 2px 2px 2px 10px;
-    margin : 0;
+#address-display-section {
+    display: flex;
+    flex-direction: column;
 }
 
-#address {
-    grid-area: address;
-}
+    #address-display-header {
+        z-index: 2;
+        padding: 3px 10px;
+        display: flexbox;
+        background: rgb(250,255,255);
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 10px;
+        
+    }
+    #address-display-header >  h5 {
+        margin-bottom: 0;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+    }
+    .header-slab {
+        border: 2px 2px 0px 2px solid blue;
+        box-shadow: 2px 2px 5px;
+        padding: 3px;
+        color: black;
+        font-family: 'Montserrat', sans-serif;
+        background-color: #f8f9fa;
 
-#address > hr {
-    margin: 5px;
-}
+    }
 
-#address-text {
-    /* display:none; */
-   /* display:inlin; */
-}
+      /***************************/
+     /* address-display-content */
+    /***************************/
+    #address-display-content {
+        height: 200px;
+        width: 100%;
+        margin: 0px 0px;
+        overflow: auto;
+        /* white-space: nowrap; */
+        background: hsl(0, 0%, 98%);
+    }
 
-#address-text>p {
-    margin: auto 1rem;
-    color: black;
-    font-family: 'Tajawal', sans-serif;
-    font-size: 0.8rem;
-    left: 1rem;
+    .address-tile {
+        padding: 3px 10px;
+        display: inline-flex;
+        flex-direction: column;
+        width: 50%;
+        background: rgb(248, 248, 248);
+        border-right: 0.2px solid #007bff45;
+        height: 100%;
+        margin: 0px -1.1px;
+        border-bottom: 0.2px solid #007bff45;
+    }
+    .address-tile> div {
+        display: inline-block;
+        white-space: initial;
+        overflow-wrap: break-word;
+        margin: 5px 5px 5px 10px;
+    }
+    .label {
+        color:black;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+    }
+    .address-edit-btns> a.address-edit-btn {
+        color:black;
+        background-color: chartreuse;
+        border-radius:2em;
+        margin:0;
+        padding: 0.5em 1em;
+        font-size: 12px;
+    }
+    .address-edit-btns> .address-deliver-btn {
+        color: #e9ecef;
+        background-color: #6c757d;
+        border-radius:2em;
+        margin:0;
+        padding: 0.5em 1em;
+        font-size: 12px;
+    }
+    .address-text {
+        color: black;
+        font-size: 13px;
+        font-family: 'Montserrat', sans-serif;
+    }
 
-}
+    #address-edit-form {
+        display: none;
+    }
 
-#add-address-form {
-    /* display:none; */
-}
+    #add-address-form {
+        display: none;
+    }
+
+      /***************************/
+     /* address-display-content */
+    /***************************/
+
+    #address-display-footer {
+        display: flexbox;
+        padding: 3px 10px;
+    }
+    .footer-slab {
+        /* border: 2px solid black; */
+        /* box-shadow: -2px -2px 2; */
+        padding: 3px;
+        color: black;
+        font-family: 'Montserrat', sans-serif;
+        background: rgb(248, 248, 248);
+    }
+    .footer-slab> a {
+        /* border: 2px solid black; */
+        /* box-shadow: -2px -2px 2; */
+        color: #dc3545;
+        font-weight: 600;
+    }
 
 .left-form {
     margin: 0.25rem 3rem 0.25rem 1rem;
+    width: 40%;
+}
+
+.right-form {
+    margin: 0.25rem 3rem 0.25rem 1rem;
+    width: 40%;
+}
+#add-address-form > p > input[name="label"]{
+    width:90%;
 }
 
 /* Inner Prepared Status */

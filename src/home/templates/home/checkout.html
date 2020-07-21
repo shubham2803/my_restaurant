@@ -7,10 +7,13 @@
     <title>Tasty - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
 
     <link rel="stylesheet" href="{% static 'home/css/flaticon.css' %}">
     <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
@@ -50,7 +53,9 @@
         <div class="box1 box-inner-gap" id="order-detail">
             <div class="box-inner-section" id="checkout-dishes-list">
                 <div id="vertical-head">
-                    <span><h5>ORDER DETAILS:</h5></span>
+                    <span>
+                        <h5>ORDER DETAILS:</h5>
+                    </span>
                     <button class="btn btn-outline-primary add-more-dishes">
                         <a href="/menu#menu-list-container">&#8592; Add More</a>
                     </button>
@@ -60,24 +65,26 @@
                     <ul class="dish-details">
                         {% for dish in dishes %}
                         {% if not dish.totalBill %}
-                            <li class="zero-display" id="dish-0-{{dish.dishId}}">
-                                <span class="quantity" id="dish-{{dish.dishId}}-quantity">{{dish.dishQuantity}} x</span>
-                                <span class="name" id="dish-{{dish.dishId}}-name">{{dish.dishName}}</span> 
-                                <span class="cost" id="dish-{{dish.dishId}}-cost">&#8377; {{dish.dishCost}}</span>
-                                <div class="right-corner">
-                                    <span class="total" id="dish-{{dish.dishId}}-total">&#8377; {{dish.dishTotal}}</span>
-                                    <span id="edit-buttons">
-                                        <button class="edit-btn" id="minus-{{dish.dishId}}" value="-{{dish.dishId}}"><a class="add-link" href="">-</a></button>
-                                        <button class="edit-btn" id="add-{{dish.dishId}}" value="{{dish.dishId}}"><a class="add-link" href="">+</a></button>
-                                    </span>
-                                </div>
-                            </li>
+                        <li class="zero-display" id="dish-0-{{dish.dishId}}">
+                            <span class="quantity" id="dish-{{dish.dishId}}-quantity">{{dish.dishQuantity}} x</span>
+                            <span class="name" id="dish-{{dish.dishId}}-name">{{dish.dishName}}</span>
+                            <span class="cost" id="dish-{{dish.dishId}}-cost">&#8377; {{dish.dishCost}}</span>
+                            <div class="right-corner">
+                                <span class="total" id="dish-{{dish.dishId}}-total">&#8377; {{dish.dishTotal}}</span>
+                                <span id="edit-buttons">
+                                    <button class="edit-btn" id="minus-{{dish.dishId}}" value="-{{dish.dishId}}"><a
+                                            class="add-link" href="">-</a></button>
+                                    <button class="edit-btn" id="add-{{dish.dishId}}" value="{{dish.dishId}}"><a
+                                            class="add-link" href="">+</a></button>
+                                </span>
+                            </div>
+                        </li>
                         {% else %}
-                            <hr>
-                            <li>
-                                <span id="total-text">Total :</span>
-                                <span id="bill-text">&#8377; {{dish.totalBill}}</span>
-                            </li>
+                        <hr>
+                        <li>
+                            <span id="total-text">Total :</span>
+                            <span id="bill-text">&#8377; {{dish.totalBill}}</span>
+                        </li>
                         {% endif %}
                         {% endfor %}
                     </ul>
@@ -93,77 +100,117 @@
         <!-- Order Status Starts -->
         <div class="box2 box-inner-gap" id="ordered-section">
             <div class="ordered-status box-inner-section">
-                <div id="address" class="test-box display-address">
-                    <div id="address-heading">
-                        <h5>ADDRESS : </h5>
-                        <span>{{address.label}} <button>Change Default</button></span>
-                    </div>
-                    <hr>
-                    {% if address %}
-                    <div id="address-display">
 
-                        <div id="address-text">
-                            <p>
-                                {{address.line1}}, {{address.area}}
-                            </p>
-                            <p>
-                                {{address.city}}, {{address.state}}
-                            </p>
-                            <p>
-                                {{address.country}}
-                            </p>
-                            <p>
-                                {{address.pinCode}}
-                            </p>
-                        <a class="left-form" id="edit-address" href="#">EDIT</a>
+                <div id="address" class="test-box display-address">
+
+                    {% if addresses %}
+                    <div id="address-display-section">
+                        <div class="header-slab" id="address-display-header">
+                            <h5>ADDRESS</h5>
                         </div>
 
-                        <form action="" id="edit-address-form">
-                            <input class="left-form" type="hidden" id="id" name="id" value="{{ address.id }}">
-                        <input class="left-form" type="text" id="label" name="label" placeholder="Label" value="{{ address.label }}">
-                        <p>
-                            <input class="left-form" type="text" name="line1" placeholder="House/Flat No." value="{{address.line1}}">
-                            <input class="right-form" type="text" name="area" placeholder="Street No/Area" value="{{address.area}}">
-                        </p>
-                        <p>
-                            <input class="left-form" type="text" name="city" placeholder="City" value="{{address.city}}">
-                            <input class="right-form" type="text" name="state" placeholder="State" value="{{address.state}}">
-                        </p>
-                        <p>
-                            <input class="left-form" type="text" name="pincode" placeholder="Pin Code" value="{{address.pinCode}}">
-                            <input class="right-form" type="text" name="country" placeholder="Country" value="{{address.country}}">
-                        </p>
-                        <input class="left-form" type="submit" id="address-btn" value="Save">
-                        </form>
+                        <div id="address-display-content">
+                            {% for address in addresses %}
+                            <div class="address-tile" id="address-tile-{{address.id}}">
+                                <div class="label">
+                                    <strong>
+                                        <i class="fa fa-home" aria-hidden="true"></i>{{address.label}}
+                                    </strong>
+                                </div>
+                                <div class="address-edit-btns">
+                                    <a href="#" class="address-edit-btn" type="button"
+                                        onclick="onEdit({{address.id}})">Edit</a>
+                                    <a href="#" class="address-deliver-btn" type="button"
+                                        onclick="onDeliver({{address.id}})">Deliver
+                                        Here</a>
+                                    <a href="#" class="address-deliver-btn" type="button"
+                                        onclick="onDelete({{address.id}})">Delete</a>
+                                </div>
+                                <div class="address-text">
+                                    {{address.line1}},
+                                    {{address.area}},
+                                    {{address.city}},
+                                    {{address.state}},
+                                    {{address.country}},
+                                    {{address.pinCode}}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div id="address-edit">
+                            <form id="address-edit-form" action="" method="GET">
+                                {% csrf_token %}
+                                <p>
+                                    <input class="left-form" type="hidden" name="id" placeholder="Id">
+                                    <input class="left-form" type="text" name="label"
+                                        placeholder="Label i.e, Home/Work etc.">
+                                </p>
+                                <p>
+                                    <input class="left-form" type="text" name="line1" placeholder="House/Flat No.">
+                                    <input class="right-form" type="text" name="area" placeholder="Street No/Area">
+                                </p>
+                                <p>
+                                    <input class="left-form" type="text" name="city" placeholder="City">
+                                    <input class="right-form" type="text" name="state" placeholder="State">
+                                </p>
+                                <p>
+                                    <input class="left-form" type="text" name="pincode" placeholder="Pin Code">
+                                    <input class="right-form" type="text" name="country" placeholder="Country">
+                                </p>
+                                <input class="left-form" type="submit" id="address-btn" value="Save" onclick="editAddress()">
+                                <a href="" type="button" onclick="onSave()">hide</a>
+                            </form>
+                        </div>
 
+                        <div class="footer-slab" id="address-display-footer">
+                            <a href="#" onclick="showAddForm()">
+                                + Add Address
+                            </a>
+                        </div>
                     </div>
-                    {% else %}
                     <form action="" method="POST" id="add-address-form">
                         {% csrf_token %}
-                        <p class="left-form">
-                            <input type="radio" name="label" id="" value="Home">
-                            <label for="home">Home</label>
-                            <input type="radio" name="label" id=""  value="Work">
-                            <label for="work">Work</label>
-                            <input type="radio" name="label" id="" value="Other">
-                            <label for="Other">Other</label>
+                        <p>
+                            <input class="left-form" type="text" name="label" placeholder="Label i.e, Home/Work etc.">
                         </p>
                         <p>
                             <input class="left-form" type="text" name="line1" placeholder="House/Flat No.">
                             <input class="right-form" type="text" name="area" placeholder="Street No/Area">
                         </p>
                         <p>
-                        <input class="left-form" type="text" name="city" placeholder="City">
-                        <input class="right-form" type="text" name="state" placeholder="State">
+                            <input class="left-form" type="text" name="city" placeholder="City">
+                            <input class="right-form" type="text" name="state" placeholder="State">
                         </p>
                         <p>
-                        <input class="left-form" type="text" name="pincode" placeholder="Pin Code">
-                        <input class="right-form" type="text" name="country" placeholder="Country">
+                            <input class="left-form" type="text" name="pincode" placeholder="Pin Code">
+                            <input class="right-form" type="text" name="country" placeholder="Country">
                         </p>
-                        <input class="left-form" type="submit" id="address-btn" value="Save">
+                        <input class="left-form" type="submit" id="address-btn" value="Save" onclick="onAdd()">
+                    </form>
+
+                    {% else %}
+                    <form action="" method="POST" id="add-address-form">
+                        {% csrf_token %}
+                        <p>
+                            <input class="left-form" type="text" name="label" placeholder="Label i.e, Home/Work etc.">
+                        </p>
+                        <p>
+                            <input class="left-form" type="text" name="line1" placeholder="House/Flat No.">
+                            <input class="right-form" type="text" name="area" placeholder="Street No/Area">
+                        </p>
+                        <p>
+                            <input class="left-form" type="text" name="city" placeholder="City">
+                            <input class="right-form" type="text" name="state" placeholder="State">
+                        </p>
+                        <p>
+                            <input class="left-form" type="text" name="pincode" placeholder="Pin Code">
+                            <input class="right-form" type="text" name="country" placeholder="Country">
+                        </p>
+                        <input class="left-form" type="submit" id="address-btn" value="Save" onclick="onAdd()">
                     </form>
                     {% endif %}
                 </div>
+
             </div>
         </div>
         <!-- Order Status Ends -->
@@ -197,6 +244,8 @@
 <script src="{% static 'home/js/bootstrap-datepicker.js' %}"></script>
 <script src="{% static 'home/js/jquery.timepicker.min.js' %}"></script>
 <script src="{% static 'home/js/checkout.js' %}"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 
 </html>

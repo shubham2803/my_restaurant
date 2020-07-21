@@ -45,23 +45,25 @@ def menuPageView(request):
 def checkOutPageView(request):
     customer = request.user
     order = Order.objects.get(customer=customer)
-    addressList = AddressList.objects.get(customer=customer)
-    print(addressList.address.all())
     dishDict = {}
     dishList = []
     addresses = []
-    for item in list(addressList.address.all()):
-        print(item.__dict__)
-        addresses.append(item)
-        print(item.id)
-        print(item.label.lower().title())
-        print(item.line1)
-        print(item.area.lower().title())
-        print(item.city.lower().title())
-        print(item.state.lower().title())
-        print(item.pinCode)
-        print(item.country.lower().title())
-
+    try:
+        addressList = AddressList.objects.get(customer=customer)
+        print(addressList.address.all())
+        for item in list(addressList.address.all()):
+            print(item.__dict__)
+            addresses.append(item)
+            print(item.id)
+            print(item.label.lower().title())
+            print(item.line1)
+            print(item.area.lower().title())
+            print(item.city.lower().title())
+            print(item.state.lower().title())
+            print(item.pinCode)
+            print(item.country.lower().title())
+    except:
+        pass
 
     if request.method == "GET":
         orderItem = OrderItem.objects.filter(order=order)
