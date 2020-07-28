@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import addAddressView, editAddress, deleteAddress
+from .views import addAddressView, editAddress, deleteAddress, setAddress
 
 urlpatterns = [
     path('new/', addAddressView, name='add-address'),
     path('edit/<int:id>', editAddress, name='edit-address'),
-    path('delete/<int:id>', deleteAddress, name='edit-address'),
+    path('delete/<int:id>', deleteAddress, name='delete-address'),
+    path('set/<int:id>', setAddress, name='set-address'),
 ]
 

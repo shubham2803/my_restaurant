@@ -35,7 +35,11 @@ INSTALLED_APPS = [
     'order.apps.OrderConfig',
     'accounts.apps.AccountsConfig',
     'address.apps.AddressConfig',
+    'reservation.apps.ReservationConfig',
 
+    'crispy_forms',
+    'phonenumber_field',
+    
     'django_filters',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -44,6 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -127,7 +133,10 @@ AUTH_USER_MODEL = 'accounts.Customer'
 LOGIN_REDIRECT_URL = 'home:index'
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+STATICFILES_DIRS = (
+  os.path.join(SITE_ROOT, 'static/'),
+)
 
 MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'home/static/home/images')

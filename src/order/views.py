@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.http import JsonResponse
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .models import Order, OrderItem
 from home.models import Restraunt, Menu, Branch, Dish, FoodItem, Category
 # Create your views here.
@@ -14,10 +15,10 @@ def addItem(request, id):
     print(id)
     if id < 0:
         dish_id = -1 * id
-    else :
+    else:
         dish_id = id
     customer = request.user
-    order, created = Order.objects.get_or_create(customer=customer)
+    order, created = Order.objects.get_or_create(customer=customer, is_complete=False)
 
     if request.method == 'GET':
         try:
@@ -89,3 +90,14 @@ def addItem(request, id):
             orderedDishDictList.append({"orderTotal" : order.get_bill})
 
             return JsonResponse(orderedDishDictList, safe=False)
+
+
+def completeOrder(request):
+    user = request.user
+    if user.is_authenticated:
+        order = Order.objects.get(customer=user, is_complete=False)
+
+        order.is_complete = True
+        order.save()
+        messages.success(request, 'order completed!')
+        return HttpResponseRedirect('/checkout/')

@@ -4,6 +4,7 @@ from django.contrib.auth.models import (
     AbstractBaseUser
 )
 
+from phonenumber_field.modelfields import PhoneNumberField
 
 # Create your models here.
 
@@ -80,7 +81,7 @@ class Customer(AbstractBaseUser):
     first_name = models.CharField(max_length=255, null=True)
     last_name = models.CharField(max_length=255, null=True)
     email = models.EmailField(verbose_name="Email Address", max_length=255, unique=True)
-    phone_no = models.CharField(max_length=10, null=True)
+    phone_no = PhoneNumberField()
     date_of_birth = models.DateField(null=True)
     gender = models.CharField(choices=GENDER_CHOICES, max_length=5, null=True)
     is_active = models.BooleanField(default=True)

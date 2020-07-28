@@ -1,0 +1,67 @@
+{% extends 'home/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'reservation/css/reservation.css' %}">
+</head>
+
+<div id="reservation-body">
+    <div id="booking-form">
+        <div class="grid-sec form-back">
+            <div id="head-slab">
+                <h5>Booking Form</h5>
+            </div>
+            <div id="show-form">
+                <form action="" method="POST" class="">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <input class="btn btn-primary btn-lg" type="submit" value="Save">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="booking-details">
+        <div class="grid-sec booking-records">
+            <h5>Booking Details</h5>
+
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <div class="accordion" id="future-bookings">
+                <button class="top-accordion">Upcoming</button>
+                <div class="top-content">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis fuga ratione eveniet
+                        aliquid
+                        est ipsam.</p>
+                </div>
+            </div>
+            <div class="accordion" id="current-bookings">
+                <button class="top-accordion">Current</button>
+                <div class="top-content">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis fuga ratione eveniet
+                        aliquid
+                        est ipsam.</p>
+                </div>
+            </div>
+            <div class="accordion" id="past-bookings">
+                <button class="top-accordion">Past</button>
+                <div class="top-content">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis fuga ratione eveniet
+                        aliquid
+                        est ipsam.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

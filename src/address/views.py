@@ -29,6 +29,15 @@ def addAddressView(request):
                 country=data["address"]["country"],
             )
 
+            flag = False
+            for item in list(addressList.address.all()):
+                if item.isDefault:
+                    flag = True
+
+            if not flag:
+                newAddress.isDefault = True
+                newAddress.save()
+                print('default set')
             addressList.address.add(newAddress)
 
             print('New Address: ', newAddress, 'has been to address list: ', addressList, 'for customer:', user)
@@ -93,7 +102,6 @@ def editAddress(request, id):
 
 def deleteAddress(request, id):
     if request.method == "GET":
-        address = {}
         customer = request.user
         addressList = AddressList.objects.get(customer=customer)
 
@@ -102,3 +110,20 @@ def deleteAddress(request, id):
                 Address.objects.filter(id=id).delete()
 
     return JsonResponse({'message': f'Address deleted for {request.user}'}, safe=False)
+
+
+def setAddress(request, id):
+    if request.method == "GET":
+        address = {}
+        customer = request.user
+        addressList = AddressList.objects.get(customer=customer)
+
+        for item in list(addressList.address.all()):
+            if item.id == int(id):
+                item.isDefault = True
+                item.save()
+            else:
+                item.isDefault = False
+                item.save()
+
+    return JsonResponse({'message': f'Address set default for {request.user}'}, safe=False)

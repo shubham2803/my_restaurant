@@ -224,7 +224,7 @@ i {
         z-index: 2;
         padding: 3px 10px;
         display: flexbox;
-        background: rgb(250,255,255);
+        background: rgb(255 255 255);
         box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 10px;
         
     }
@@ -255,6 +255,9 @@ i {
         background: hsl(0, 0%, 98%);
     }
 
+    .default {
+        box-shadow: inset 0 0 10px;    }
+
     .address-tile {
         padding: 3px 10px;
         display: inline-flex;
@@ -272,22 +275,31 @@ i {
         overflow-wrap: break-word;
         margin: 5px 5px 5px 10px;
     }
+    
     .label {
         color:black;
         font-family: 'Montserrat', sans-serif;
         font-weight: 500;
     }
     .address-edit-btns> a.address-edit-btn {
-        color:black;
-        background-color: chartreuse;
-        border-radius:2em;
-        margin:0;
+        color: #e9ecef;
+        background-color: #dc3545;
+        border-radius: 2em;
+        margin: 0;
         padding: 0.5em 1em;
         font-size: 12px;
     }
     .address-edit-btns> .address-deliver-btn {
         color: #e9ecef;
-        background-color: #6c757d;
+        background-color: #007bff;
+        border-radius:2em;
+        margin:0;
+        padding: 0.5em 1em;
+        font-size: 12px;
+    }
+    .address-delete-btn {
+        color: #e9ecef;
+        background-color: #d39e00;
         border-radius:2em;
         margin:0;
         padding: 0.5em 1em;
@@ -321,7 +333,7 @@ i {
         padding: 3px;
         color: black;
         font-family: 'Montserrat', sans-serif;
-        background: rgb(248, 248, 248);
+        background: rgb(255 255 255);
     }
     .footer-slab> a {
         /* border: 2px solid black; */

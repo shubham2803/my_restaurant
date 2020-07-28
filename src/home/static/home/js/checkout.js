@@ -146,9 +146,20 @@ function onSave(e) {
 	$("#address-display-content").load("*");
 }
 
-function onDeliver(e) {
-	console.log(e + 'deliver test');
+function onDeliver(id) {
+	console.log(id + 'deliver test');
 	document.querySelector('.footer-slab').style.display = 'block';
+
+	$.ajax({
+		type: "GET",
+		url: "/address/set/" + id,
+		dataType: 'json',
+		complete: function (data) {
+			console.log('Success: ',data.responseJSON.message);
+			location.reload();
+		}
+	});
+
 }
 
 function showAddForm() {
@@ -188,16 +199,18 @@ function onAdd() {
 }
 
 function onDelete(id) {
-	confirm("Delete the address?");
-	$.ajax({
-		type: "GET",
-		url: "/address/delete/" + id,
-		dataType: 'json',
-		complete: function (data) {
-			console.log('Success: ',data.responseJSON.message);
-			location.reload();
-		}
-	});
+	let deleteConfirmation = confirm("Delete the address?");
+	if (deleteConfirmation){
+		$.ajax({
+			type: "GET",
+			url: "/address/delete/" + id,
+			dataType: 'json',
+			complete: function (data) {
+				console.log('Success: ',data.responseJSON.message);
+				location.reload();
+			}
+		});
+	}
 
 	/* url = "/address/delete/" + id;
 	fetch(url, {

@@ -1,0 +1,119 @@
+* {
+box-sizing: border-box;
+}
+
+body {
+    background: url(../images/restaurant-bg3.jpg);
+    background-size: cover;
+
+}
+#reservation-body {
+    margin: 5rem 3rem auto;
+    display: grid;
+    gap: 1vh;
+    grid-template-areas: 
+    'form  details'
+    'form  details'; 
+}
+
+
+#booking-form {
+    grid-area: 'form';
+    /* border: 1px solid black; */
+    margin: 2rem;
+    padding: 1rem;
+}
+
+#booking-details {
+    grid-area: 'details';
+    /* border: 1px solid black; */
+    margin: 2rem;
+    padding: 1rem;
+
+}
+
+.grid-sec {
+    /* border: 2px solid blue; */
+    padding: 0.5rem;
+    box-shadow: inset 1px 3px 6px;
+    /* border: 1.2px solid #007bff45; */
+}
+
+.form-back {
+    background: url(../images/form-bg3.jpg);
+    background-size: cover;
+    color: #ced4da;
+}
+
+#head-slab {
+    margin: -0.5rem;
+    z-index: 2;
+    padding: 3px 10px;
+    display: flexbox;
+    background: #202c2a;
+    box-shadow: inset #ced4da7a 0px 2px 4px 0px;
+}
+
+h5 {
+    color: #ffffff;
+}
+
+#show-form {
+    margin-top: 2rem;
+}
+
+#show-form > form > input[type=submit] {
+    width: 100%;
+}
+/* 
+.info {
+    font-size: 16px;
+    width: 70%;
+    padding-bottom: 20px;
+  }
+*/
+
+.booking-records {
+    background: url(../images/form-bg3.jpg);
+    background-size: cover;
+    color: #ced4da;  
+    width: 40rem;
+    margin-right: -15rem;;
+}
+/* 
+.accordion {
+    width: 15rem;
+} */
+
+button.top-accordion {
+    text-align: left;
+    width: 100%;
+    border:none;
+    background: #d39e00;
+    margin: 1rem 0 0 0;
+}
+
+
+button.top-accordion.active, .top-accordion:hover {
+    background-color: green;
+  }
+  
+  .top-accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  button.top-accordion.active.active:after {
+    content: "\2212";
+  }
+  
+  .top-content {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }

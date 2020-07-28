@@ -1,0 +1,73 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'accounts/css/profile.css' %}">
+</head>
+
+<body>
+    <section id="profile">
+        <div id="profile-top">
+            <h5>{{user.first_name}} {{user.last_name}}</h5>
+        </div>
+
+        <div id="profile-box">
+            <div class="box-header">
+                <h4>Profile</h4>
+            </div>
+            <hr>
+            <div class="box-content">
+                
+                <div class="tab">
+                    <button class="tablinks" onclick="openCity(event, 'orders')" id="defaultOpen">Orders</button>
+                    <button class="tablinks" onclick="openCity(event, 'reservations')">Reservations</button>
+                    <button class="tablinks" onclick="openCity(event, 'addresses')">Addresses</button>
+                </div>
+                <div class="tab-box">
+                    <div id="orders" class="tabcontent">
+                        {% for order in orders %}
+                            {{order}}
+                        {% endfor %}
+                        <h3>Orders</h3>
+                        <p>This is orders section.</p>
+                    </div>
+                    
+                    <div id="reservations" class="tabcontent">
+                        <h3>Reservation</h3>
+                        <p>This is reservation section.</p> 
+                    </div>
+                    
+                    <div id="addresses" class="tabcontent">
+                        {% for address in addresses %}
+                            <div class="address-tile" id="address-{{address.id}}">
+                                <div class="label">
+                                    <h5>{{address.label}}</h5>
+                                </div>
+                                <div class="address-text">
+                                    <p>
+                                        {{address.line1}}, {{address.area}}, {{address.city}},
+                                        {{address.state}}, {{address.country}}, {{address.pinCode}}
+                                    </p>
+                                </div>
+                                <div class="address-edit-btns">
+                                    <a href="#" class="address-edit-btn" type="button"
+                                        onclick="onEdit({{address.id}})">Edit</a>
+                                    {% if not address.isDefault %}
+                                    <a href="#" class="address-deliver-btn" type="button"
+                                        onclick="onDeliver({{address.id}})">Set Default</a>
+                                    <a href="#" class="address-delete-btn" type="button"
+                                        onclick="onDelete({{address.id}})">Delete</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="{% static 'accounts/js/profile.js' %}"></script>
+{% endblock %}

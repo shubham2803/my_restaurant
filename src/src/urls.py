@@ -24,10 +24,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
     path('order/', include('order.urls')),
+    path('reservation/', include('reservation.urls')),
     path('customer/', include('accounts.urls')),
     path('address/', include('address.urls')),
     path('login/', auth_views.LoginView.as_view(template_name='accounts/login.html'), name='user-login'),
-    path('logout/', auth_views.LogoutView.as_view(template_name='accounts/login.html'), name='user-logout'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='home/index.html'), name='user-logout'),
 
 ]
 

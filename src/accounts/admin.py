@@ -3,12 +3,17 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .forms import ChangeProfile, CustomerSignUpForm
 from .models import Customer
+from address.models import AddressList, Address
 
 
 # Register your models here.
 
 
-class CustomerAdmin(BaseUserAdmin):
+class AddressInLine(admin.TabularInline):
+    model = AddressList
+
+
+class CustomerAdmin(BaseUserAdmin, admin.ModelAdmin):
     form = ChangeProfile
     add_form = CustomerSignUpForm
 
@@ -35,7 +40,15 @@ class CustomerAdmin(BaseUserAdmin):
     search_fields = ('email', 'first_name', 'last_name', 'phone_no',)
     ordering = ('first_name', 'last_name', 'email', )
     filter_horizontal = ()
+    inlines = [
+        AddressInLine,
+    ]
+
+
+class AddressManager(admin.ModelAdmin):
+    inlines = [
+        AddressInLine,
+    ]
 
 
 admin.site.register(Customer, CustomerAdmin)
-admin.site.unregister(Group)

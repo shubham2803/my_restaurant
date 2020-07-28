@@ -38,50 +38,37 @@
 
 <body style="max-width: 100%;overflow-x: hidden;">
 
-  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Tasty</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="oi oi-menu"></span> Menu
-      </button>
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light scrolled awake"
+        id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/">Tasty</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
 
-      <div class="collapse navbar-collapse" id="ftco-nav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="menu.html" class="nav-link">Menu</a></li>
-          <li class="nav-item"><a href="specialties.html" class="nav-link">Specialties</a></li>
-          <li class="nav-item"><a href="reservation.html" class="nav-link">Reservation</a></li>
-          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <!-- END nav -->
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="{% url 'home:index' %}" class="nav-link">Home</a></li>
+                    <li class="nav-item active"><a href="{% url 'home:menu' %}" class="nav-link">Menu</a></li>
+                    <li class="nav-item"><a href="{% url 'reservation:booking' %}" class="nav-link">Reservation</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse authentication-sec">
+            {% if not user.is_authenticated %}
+              <a class="navbar-auth login" href="{% url 'user-login' %}">Log In</a>
+              <a class="navbar-auth signup" href="{% url 'accounts:signup' %}">Sign Up</a>
+            {% else %}
+            <a class="navbar-auth " href="{% url 'accounts:profile' %}">Profile</a>
 
-  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-    <div class="container">
-      <a class="navbar-brand" href="{% url 'home:index' %}">Tasty</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="oi oi-menu"></span> Menu
-      </button>
-
-      <div class="collapse navbar-collapse" id="ftco-nav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="{% url 'home:index' %}" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="{% url 'home:menu' %}" class="nav-link">Menu</a></li>
-          <li class="nav-item"><a href="specialties.html" class="nav-link">Specialties</a></li>
-          <li class="nav-item"><a href="reservation.html" class="nav-link">Reservation</a></li>
-          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+            <a class="navbar-auth logout" href="{% url 'user-logout' %}">Logout</a>
+            {% endif %}
+        </div>
+    </nav>
   <!-- END nav -->
 
   <section class="home-slider owl-carousel">

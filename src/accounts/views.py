@@ -1,7 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
+
 from .models import Customer, CustomerManager
+from address.models import AddressList, Address
+from reservation.models import Reservation
+from order.models import Order
+
 from .forms import CustomerSignUpForm, ChangeProfile, CustomerLogin
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
@@ -41,4 +46,28 @@ def logInView(request):
             messages.error(request, "Invalid username or password.")
     form = AuthenticationForm()
     return render(request, 'accounts/login.html', {'form': form})
+
+
+def profileView(request):
+    user = request.user
+    context = {}
+    if user.is_authenticated:
+        addressList = AddressList.objects.get(customer=user)
+        addresses = addressList.address.all()
+        orders = Order.objects.filter(customer=user)
+        try:
+            reservations = Reservation.objects.filter(customer=user)
+        except:
+            reservations = None
+
+        context = {
+            'addresses': addresses,
+            'orders': orders,
+            'reservations': reservations,
+            'user': user,
+        }
+    return render(request, 'accounts/profile.html', context)
+
+
+
 

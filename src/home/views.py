@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Restraunt, Menu, Branch, Dish, Category
 from order.models import OrderItem, Order, Customer
 from address.models import Address, AddressList
@@ -36,7 +36,7 @@ def menuPageView(request):
 
     context = {
         'dishes': dishes,
-        'dish_types' : dish_types,
+        'dish_types': dish_types,
     }
 
     return render(request, 'home/menu.html', context)
@@ -44,7 +44,15 @@ def menuPageView(request):
 
 def checkOutPageView(request):
     customer = request.user
-    order = Order.objects.get(customer=customer)
+    if customer.is_authenticated:
+        pass
+    else:
+        return redirect('user-login')
+
+    try:
+        order = Order.objects.get(customer=customer, is_complete=False)
+    except:
+        return redirect('/menu/')
     dishDict = {}
     dishList = []
     addresses = []
@@ -52,21 +60,26 @@ def checkOutPageView(request):
         addressList = AddressList.objects.get(customer=customer)
         print(addressList.address.all())
         for item in list(addressList.address.all()):
-            print(item.__dict__)
+            # print(item.__dict__)
             addresses.append(item)
-            print(item.id)
-            print(item.label.lower().title())
-            print(item.line1)
-            print(item.area.lower().title())
-            print(item.city.lower().title())
-            print(item.state.lower().title())
-            print(item.pinCode)
-            print(item.country.lower().title())
+            # print(item.id)
+            # print(item.label.lower().title())
+            # print(item.line1)
+            # print(item.area.lower().title())
+            # print(item.city.lower().title())
+            # print(item.state.lower().title())
+            # print(item.pinCode)
+            # print(item.country.lower().title())
+            if item.isDefault:
+                order.address = item
+                order.save()
     except:
         pass
 
     if request.method == "GET":
         orderItem = OrderItem.objects.filter(order=order)
+        if len(list(orderItem)) == 0:
+            return redirect('home:menu')
         for item in list(orderItem):
             dishId = item.orderItem.id
             dishName = item.orderItem.dish
@@ -86,7 +99,7 @@ def checkOutPageView(request):
         dishDict["totalBill"] = order.get_bill
         dishList.append(dishDict)
 
-        print(dishList)
+        print(f'\nDishes added to order of {request.user} are : \n{dishList}\n')
     return render(request, 'home/checkout.html', {'addresses': addresses, 'dishes': dishList})
 
 
