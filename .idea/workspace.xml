@@ -2,52 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70cfbbd2-4dd0-4397-b771-a1344dfe9af3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/accounts/migrations/0006_auto_20200727_2109.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/accounts/templates/accounts/profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/order/migrations/0003_order_status.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/order/migrations/0004_remove_order_branch.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reservation/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reservation/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reservation/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reservation/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reservation/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reservation/migrations/0002_reservation_customer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reservation/migrations/0003_auto_20200724_2333.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reservation/migrations/0004_auto_20200727_2109.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reservation/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reservation/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reservation/static/reservation/css/reservation.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reservation/static/reservation/images/form-bg2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reservation/static/reservation/images/form-bg3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reservation/static/reservation/images/form-bg4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reservation/static/reservation/images/restaurant-bg3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reservation/static/reservation/js/reservation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reservation/templates/reservation/reservation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reservation/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reservation/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reservation/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/home/static/home/js/card.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/home/templates/home/checkout2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/order/templates/order/order_summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/order/templates/order/payment.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/accounts/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/accounts/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/accounts/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/accounts/templates/accounts/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/accounts/templates/accounts/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/accounts/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/accounts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/address/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/address/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/address/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/address/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/home/static/home/css/checkout.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/static/home/css/checkout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/static/home/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/static/home/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/home/static/home/js/checkout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/static/home/js/checkout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/home/templates/home/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/templates/home/checkout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/templates/home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/templates/home/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/home/templates/home/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/templates/home/menu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/order/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/order/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/order/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/order/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/order/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/order/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/order/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/order/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/src/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,10 +93,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="1221" y="392" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1050@0.0.1920.1050" timestamp="1595003785153" />
-    <state x="614" y="119" key="CommitChangelistDialog2" timestamp="1595099740786">
+    <state x="614" y="119" key="CommitChangelistDialog2" timestamp="1596120774171">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="614" y="119" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1595099740786" />
+    <state x="614" y="119" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1596120774171" />
     <state x="686" y="217" key="FileChooserDialogImpl" timestamp="1595957560054">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -139,11 +106,11 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="461" y="167" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1594965880851" />
-    <state x="1091" y="303" key="com.intellij.ide.util.TipDialog" timestamp="1595960377198">
+    <state x="1091" y="303" key="com.intellij.ide.util.TipDialog" timestamp="1596732105403">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="873" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1591587286135" />
-    <state x="1091" y="303" key="com.intellij.ide.util.TipDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1595960377198" />
+    <state x="1091" y="303" key="com.intellij.ide.util.TipDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1596732105403" />
     <state x="769" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595871765122">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

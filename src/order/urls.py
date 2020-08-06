@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import register_converter, path, include
 from django.conf.urls.static import static
 from django.conf import settings
-from .views import addItem, completeOrder
+from .views import addItem, completeOrder, payment_status
 from .converters import NegativeIntConverter
 
 register_converter(NegativeIntConverter, 'negint')
@@ -25,7 +25,9 @@ register_converter(NegativeIntConverter, 'negint')
 app_name = 'order'
 urlpatterns = [
     path('add-item/<negint:id>', addItem, name='add'),
-    path('complete/', completeOrder, name='complete-order'),
+    path('initiate/', completeOrder, name='complete-order'),
+    path('payment_status/', payment_status, name = 'payment_status'),
+    # path('initiate/', payment_status, name = 'payment_status'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

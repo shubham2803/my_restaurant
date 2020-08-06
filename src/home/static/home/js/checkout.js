@@ -14,11 +14,11 @@ for (let i = 0; i < editBtn.length; i++) {
 	}
 }
 
-$(document).ready(function() {
-    function disableBack() { window.history.forward() }
+$(document).ready(function () {
+	function disableBack() { window.history.forward() }
 
-    window.onload = disableBack();
-    window.onpageshow = function(evt) { if (evt.persisted) disableBack() }
+	window.onload = disableBack();
+	window.onpageshow = function (evt) { if (evt.persisted) disableBack() }
 });
 
 /* const btn = document.querySelector('#address-btn');
@@ -95,20 +95,20 @@ function onEdit(id) {
 		complete: function (data) {
 			console.log(data.responseJSON[0]);
 			address = data.responseJSON[0]
-			document.querySelector("#address-edit-form > p > input[name='id']").value=address.id;
-			document.querySelector("#address-edit-form > p > input[name='label']").value=address.label;
-			document.querySelector("#address-edit-form > p > input[name='line1']").value=address.line1;
-			document.querySelector("#address-edit-form > p > input[name='area']").value=address.area;
-			document.querySelector("#address-edit-form > p > input[name='city']").value=address.city;
-			document.querySelector("#address-edit-form > p > input[name='state']").value=address.state;
-			document.querySelector("#address-edit-form > p > input[name='country']").value=address.country;
-			document.querySelector("#address-edit-form > p > input[name='pincode']").value=address.pinCode;
+			document.querySelector("#address-edit-form > p > input[name='id']").value = address.id;
+			document.querySelector("#address-edit-form > p > input[name='label']").value = address.label;
+			document.querySelector("#address-edit-form > p > input[name='line1']").value = address.line1;
+			document.querySelector("#address-edit-form > p > input[name='area']").value = address.area;
+			document.querySelector("#address-edit-form > p > input[name='city']").value = address.city;
+			document.querySelector("#address-edit-form > p > input[name='state']").value = address.state;
+			document.querySelector("#address-edit-form > p > input[name='country']").value = address.country;
+			document.querySelector("#address-edit-form > p > input[name='pincode']").value = address.pinCode;
 		}
 	});
 
 }
-	
-function editAddress(){
+
+function editAddress() {
 	const addressEditForm = document.querySelector('#address-edit-form');
 	console.log(addressEditForm)
 	let address = {
@@ -131,11 +131,11 @@ function editAddress(){
 		},
 		body: JSON.stringify({ 'address': address })
 	})
-	.then((response) => response.json())
-	.then((data) => {
-		console.log('Success: ', data.message);
-		location.reload();
-	})
+		.then((response) => response.json())
+		.then((data) => {
+			console.log('Success: ', data.message);
+			location.reload();
+		})
 }
 
 function onSave(e) {
@@ -155,7 +155,7 @@ function onDeliver(id) {
 		url: "/address/set/" + id,
 		dataType: 'json',
 		complete: function (data) {
-			console.log('Success: ',data.responseJSON.message);
+			console.log('Success: ', data.responseJSON.message);
 			location.reload();
 		}
 	});
@@ -191,22 +191,22 @@ function onAdd() {
 		},
 		body: JSON.stringify({ 'address': address })
 	})
-	.then((response) => response.json())
-	.then((data) => {
-		console.log('Success: ', data.message);
-		location.reload();
-	})
+		.then((response) => response.json())
+		.then((data) => {
+			console.log('Success: ', data.message);
+			location.reload();
+		})
 }
 
 function onDelete(id) {
 	let deleteConfirmation = confirm("Delete the address?");
-	if (deleteConfirmation){
+	if (deleteConfirmation) {
 		$.ajax({
 			type: "GET",
 			url: "/address/delete/" + id,
 			dataType: 'json',
 			complete: function (data) {
-				console.log('Success: ',data.responseJSON.message);
+				console.log('Success: ', data.responseJSON.message);
 				location.reload();
 			}
 		});
@@ -222,3 +222,102 @@ function onDelete(id) {
 		alert('Address Deleted!');
 	}) */
 }
+
+const prepSec = document.querySelector('#preparing-section');
+const deliSec = document.querySelector('#delivery-section');
+const ordSec = document.querySelector('#order-display');
+
+function paymentOn() {
+
+	$.ajax({
+		type: "GET",
+		url: "/order/initiate/",
+		dataType: 'json',
+		complete: function (data) {
+			console.log('Success: ', data.responseJSON.message);
+			location.reload();
+		}
+	});
+}
+
+
+function selectPayment(event, type) {
+	var i, tabcontent, tablinks;
+	tabcontent = document.getElementsByClassName("pay-content");
+	for (i = 0; i < tabcontent.length; i++) {
+		tabcontent[i].style.display = "none";
+	}
+	tablinks = document.getElementsByClassName("payment-type");
+	for (i = 0; i < tablinks.length; i++) {
+		tablinks[i].className = tablinks[i].className.replace(" active", "");
+	}
+	document.getElementById(type).style.display = "block";
+	event.currentTarget.className += " active";
+}
+
+
+/* function cc_format(value) {
+	var v = value.replace(/\s+/g, '').replace(/[^0-9]/gi, '')
+	var matches = v.match(/\d{4,16}/g);
+	var match = matches && matches[0] || ''
+	var parts = []
+	for (i = 0, len = match.length; i < len; i += 4) {
+		parts.push(match.substring(i, i + 4))
+	}
+	if (parts.length) {
+		return parts.join(' ')
+	} else {
+		return value
+	}
+}
+
+document.getElementById('cc').oninput = function () {
+	this.value = cc_format(this.value)
+}
+
+function checkDigit(event) {
+	var code = (event.which) ? event.which : event.keyCode;
+
+	if ((code < 48 || code > 57) && (code > 31)) {
+		return false;
+	}
+
+	return true;
+} */
+
+var getEl = document.getElementById.bind(document);
+var formatter = Razorpay.setFormatter(getEl('pay-form'));
+var cvvField = getEl('card_cvv');
+
+formatter.add('card', getEl('card_num'))
+  .on('network', function(o) {
+
+    var type = this.type; // e.g. 'visa'
+
+    // set length of cvv element based on amex card
+    var cvvlen = type === 'amex' ? 4 : 3;
+    cvvField.maxLength = cvvlen;
+    cvvField.pattern = '^[0-9]{' + cvvlen + '}$';
+
+    getEl('card_type').innerHTML = type;
+  })
+  .on('change', function() {
+    var isValid = this.isValid();
+    getEl('card_valid').innerHTML = isValid ? 'valid' : 'invalid';
+
+    // automatically focus next field if card number is valid and filled
+    if (isValid && this.el.value.length === this.caretPosition) {
+      getEl('card_expiry').focus();
+    }
+  })
+
+formatter.add('expiry', getEl('card_expiry'))
+  .on('change', function() {
+    var isValid = this.isValid();
+    getEl('expiry_valid').innerHTML = isValid ? 'valid' : 'invalid';
+
+    // automatically focus next field if card number is valid and filled
+    if (isValid && this.el.value.length === this.caretPosition) {
+      getEl('card_cvv').focus();
+    }
+  })

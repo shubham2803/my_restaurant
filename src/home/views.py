@@ -2,7 +2,12 @@ from django.shortcuts import render, redirect
 from .models import Restraunt, Menu, Branch, Dish, Category
 from order.models import OrderItem, Order, Customer
 from address.models import Address, AddressList
+
+import razorpay
+
 # Create your views here.
+
+client = razorpay.Client(auth=('rzp_test_7DRR93ecd1hzdM', 'Dyfy8kCYQaYkDRUma72Rbh6I'))
 
 
 def homePageView(request):
@@ -40,6 +45,8 @@ def menuPageView(request):
     }
 
     return render(request, 'home/menu.html', context)
+
+
 
 
 def checkOutPageView(request):
@@ -101,9 +108,3 @@ def checkOutPageView(request):
 
         print(f'\nDishes added to order of {request.user} are : \n{dishList}\n')
     return render(request, 'home/checkout.html', {'addresses': addresses, 'dishes': dishList})
-
-
-
-
-
-
