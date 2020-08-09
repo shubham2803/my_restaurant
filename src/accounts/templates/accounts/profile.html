@@ -26,18 +26,18 @@
                 </div>
                 <div class="tab-box">
                     <div id="orders" class="tabcontent">
+                        <h3>Orders</h3>
+                        <p>This is orders section.</p>
                         {% for order in orders %}
                             {{order}}
                         {% endfor %}
-                        <h3>Orders</h3>
-                        <p>This is orders section.</p>
                     </div>
-                    
+
                     <div id="reservations" class="tabcontent">
                         <h3>Reservation</h3>
-                        <p>This is reservation section.</p> 
+                        <p>This is reservation section.</p>
                     </div>
-                    
+
                     <div id="addresses" class="tabcontent">
                         {% for address in addresses %}
                             <div class="address-tile" id="address-{{address.id}}">

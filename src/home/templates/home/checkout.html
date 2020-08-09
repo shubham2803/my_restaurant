@@ -64,9 +64,10 @@
                     <span>
                         <h5>ORDER DETAILS:</h5>
                     </span>
-                    <button class="btn btn-outline-primary add-more-dishes">
-                        <a href="/menu#menu-list-container">&#8592; Add More</a>
-                    </button>
+                {% if not status %}
+                <button class="btn btn-outline-primary add-more-dishes">
+                    <a href="/menu#menu-list-container">&#8592; Add More</a>
+                </button>
                 </div>
                 <hr>
                 <div id="dish-list">
@@ -103,6 +104,28 @@
                         <button class="btn btn-outline-primary" id="payment">Proceed to Pay </button>
                     </a>
                 </div>
+                {% else %}
+                <div>
+                    {% for dish in dishes %}
+                        {% if not dish.totalBill %}
+                        <li class="zero-display" id="dish-0-{{dish.dishId}}">
+                            <span class="quantity" id="dish-{{dish.dishId}}-quantity">{{dish.dishQuantity}} x</span>
+                            <span class="name" id="dish-{{dish.dishId}}-name">{{dish.dishName}}</span>
+                            <span class="cost" id="dish-{{dish.dishId}}-cost">&#8377; {{dish.dishCost}}</span>
+                            <div class="right-corner">
+                                <span class="total" id="dish-{{dish.dishId}}-total">&#8377; {{dish.dishTotal}}</span>
+                                <span id="edit-buttons">
+                                    <button class="edit-btn" id="minus-{{dish.dishId}}" value="-{{dish.dishId}}"><a
+                                            class="add-link" href="">-</a></button>
+                                    <button class="edit-btn" id="add-{{dish.dishId}}" value="{{dish.dishId}}"><a
+                                            class="add-link" href="">+</a></button>
+                                </span>
+                            </div>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                {% endif %}
             </div>
         </div>
         <!-- Order Details Ends -->
@@ -237,7 +260,8 @@
                 </div>
             </div>
             <!-- Order Status Ends -->
-
+            
+            {% if status %}
             <!-- Preparation Status Starts -->
             <div class="box2 box-inner-gap" id="preparing-section">
                 <div class="test-box box-inner-section">
@@ -253,7 +277,7 @@
                 </div>
             </div>
             <!-- Delivery Status Ends -->
-
+            {% endif %}
         </div>
 
 </body>

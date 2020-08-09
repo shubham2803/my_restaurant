@@ -47,8 +47,6 @@ def menuPageView(request):
     return render(request, 'home/menu.html', context)
 
 
-
-
 def checkOutPageView(request):
     customer = request.user
     if customer.is_authenticated:
@@ -57,9 +55,12 @@ def checkOutPageView(request):
         return redirect('user-login')
 
     try:
-        order = Order.objects.get(customer=customer, is_complete=False)
+        order = Order.objects.get(customer=customer, is_complete=False, status='pending')
     except:
-        return redirect('/menu/')
+        try:
+            order = Order.objects.get(customer=customer, is_complete=False, status='initiated')
+        except:
+            return redirect('/menu/')
     dishDict = {}
     dishList = []
     addresses = []
@@ -107,4 +108,4 @@ def checkOutPageView(request):
         dishList.append(dishDict)
 
         print(f'\nDishes added to order of {request.user} are : \n{dishList}\n')
-    return render(request, 'home/checkout.html', {'addresses': addresses, 'dishes': dishList})
+    return render(request, 'home/checkout.html', dict(addresses=addresses, dishes=dishList, status=order.is_complete))

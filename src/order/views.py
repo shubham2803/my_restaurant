@@ -5,6 +5,7 @@ import razorpay
 from django.contrib.auth.decorators import login_required
 from .models import Order, OrderItem
 from home.models import Restraunt, Menu, Branch, Dish, FoodItem, Category
+from address.models import Address, AddressList
 # Create your views here.
 
 client = razorpay.Client(auth=('rzp_test_7DRR93ecd1hzdM', 'Dyfy8kCYQaYkDRUma72Rbh6I'))
@@ -21,7 +22,7 @@ def addItem(request, id):
     else:
         dish_id = id
     customer = request.user
-    order, created = Order.objects.get_or_create(customer=customer, is_complete=False)
+    order, created = Order.objects.get_or_create(customer=customer, is_complete=False, status='pending')
 
     if request.method == 'GET':
         try:
@@ -144,10 +145,53 @@ def payment_status(request):
     try:
         status = client.utility.verify_payment_signature(params_dict)
 
-        order.is_complete = True
+        order.status = 'payed'
         print(order.id)
         order.save()
         messages.success(request, 'order completed!')
         return render(request, 'order/order_summary.html', {'status': 'Payment Successful'})
     except:
         return render(request, 'order/order_summary.html', {'status': 'Payment Faliure!!!'})
+
+
+def orderStatusView(request, _id):
+    user = request.user
+    dishDict = {}
+    dishList = []
+
+    if not user.is_authenticated:
+        return redirect('login')
+
+    order = Order.objects.all(customer=user, is_complete=False, id=_id, status='payed')
+    orderItems = OrderItem.objects.filter(order=order)
+    address = order.address
+
+    if request.method == "GET":
+        for item in list(orderItems):
+            dishId = item.orderItem.id
+            dishName = item.orderItem.dish
+            dishCost = item.orderItem.cost
+            dishQuantity = item.quantity
+            dishTotal = item.get_total
+
+            dishDict["dishId"] = dishId
+            dishDict["dishName"] = dishName
+            dishDict["dishCost"] = dishCost
+            dishDict["dishQuantity"] = dishQuantity
+            dishDict["dishTotal"] = dishTotal
+            dishList.append(dishDict)
+            dishDict = {}
+            # print("dishId : ", dishId, " dishName : ", dishName, " dishCost : ", dishCost, " dishQuantity : ",
+            # dishQuantity)
+        dishDict["totalBill"] = order.get_bill
+        dishList.append(dishDict)
+
+        context = {
+            'order': order,
+            'dishes': dishList,
+            'address': address,
+            'name': f'{user.first_name} {user.last_name}',
+            'order_id': order.id,
+        }
+
+

@@ -5,7 +5,7 @@ from django.contrib import messages
 from .models import Customer, CustomerManager
 from address.models import AddressList, Address
 from reservation.models import Reservation
-from order.models import Order
+from order.models import Order, OrderItem
 
 from .forms import CustomerSignUpForm, ChangeProfile, CustomerLogin
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -51,23 +51,53 @@ def logInView(request):
 def profileView(request):
     user = request.user
     context = {}
-    if user.is_authenticated:
-        addressList = AddressList.objects.get(customer=user)
-        addresses = addressList.address.all()
-        orders = Order.objects.filter(customer=user)
-        try:
-            reservations = Reservation.objects.filter(customer=user)
-        except:
-            reservations = None
+    if not user.is_authenticated:
+        return redirect('login')
 
-        context = {
-            'addresses': addresses,
-            'orders': orders,
-            'reservations': reservations,
-            'user': user,
-        }
+    addressList = AddressList.objects.get(customer=user)
+    addresses = addressList.address.all()
+    orders = Order.objects.filter(customer=user)
+    try:
+        reservations = Reservation.objects.filter(customer=user)
+    except:
+        reservations = None
+
+    context = {
+        'addresses': addresses,
+        'orders': orders,
+        'reservations': reservations,
+        'user': user,
+    }
     return render(request, 'accounts/profile.html', context)
 
 
+def orderView(request, _id):
+    user = request.user
+    dishList = []
+    dishDict = {}
+    context = {}
+    if not user.is_authenticated:
+        return redirect('login')
+
+    order = Order.objects.get(id=_id)
+    orderItems = OrderItem.objects.filter(order)
+    address = order.address
+    total = order.get_bill
+
+    for item in list(orderItems):
+        dish = item.orderItems
+        dishDict['name'] = dish.dish
+        dishDict['dishCost'] = dish.cost
+        dishDict['quantity'] = item.quantity
+        dishDict['dishTotal'] = item.get_total
+
+        dishList.append(dishDict)
+        dishDict = {}
+
+    context = {
+        'dishes': dishList,
+        'address': address,
+        'total': total,
+    }
 
 
