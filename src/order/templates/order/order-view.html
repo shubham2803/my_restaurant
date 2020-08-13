@@ -1,0 +1,94 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'order/css/order-view.css' %}">
+</head>
+
+<section id="order-section">
+
+    <div id="order-container">
+        <div class="order-head order-pad">
+            <div class="order-id">
+                Order ID: {{ order.id }}
+            </div>
+            <div class="order-status">
+                {{ order.status }}
+            </div>
+        </div>
+        <div class="customer-details order-pad">
+            <div class=customer-name>
+                <span class="bold-text">Name: </span>
+                <span>{{customer.first_name}} {{customer.last_name}}</span>
+            </div>
+            <div class="customer-mail">
+                <span class="bold-text">E-mail: </span>
+                <span>{{customer.email}}</span>
+            </div>
+            <div class="customer-phone">
+                <span class="bold-text">Phone No: </span>
+                <span>{{customer.phone_no}}</span>
+            </div>
+        </div>
+        <hr>
+        <div class="order-time order-pad">
+            <div class="bold-text">
+                ORDERED ON :
+            </div>
+            <div>
+                XXXXXXXXXXXX
+            </div>
+        </div>
+        <hr>
+        <div class="order-content order-pad">
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Cost/Item</th>
+                    <th>Quantity</th>
+                    <th>Item Total  </th>
+                </tr>
+                {% for dish in dishes %}
+                <tr>
+                    <td>{{ dish.dishName }}</td>
+                    <td>&#x20B9;{{ dish.dishCost }}</td>
+                    <td>{{ dish.quantity }}</td>
+                    <td>&#x20B9;{{ dish.dishTotal }}</td>
+                </tr>
+                {% endfor %}
+                <tr id="order-total" class="bold-text">
+                    <td>TOTAL</td>
+                    <td>--</td>
+                    <td>{{ order.get_quantity }}</td>
+                    <td>&#x20B9;{{ order.get_bill }}</td>
+                </tr>
+            </table>
+            <hr>
+            <div class="address-detail">
+                <div class="address-detail-head bold-text">
+                    Delivered to : 
+                </div>
+                <div class="address-text">
+                    {{ address.line1 }}, {{ address.area }}, {{ address.city }}, {{ address.country }}, {{ address.pinCode }}
+                </div>
+            </div>
+            <hr>
+            <div class="payment-detail">
+                <div class="payment-method">
+                    <span class="bold-text">Payment Method:</span>
+                    <span>XXXXXXXXXXXXXX</span>
+                </div>
+                
+            </div>
+        </div>
+        <div class="order-foot order-pad">
+            <button class="re-order">
+                Re-order
+            </button>
+        </div>
+    </div>
+</div>
+
+</section>
+{% endblock %}

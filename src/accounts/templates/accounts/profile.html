@@ -27,10 +27,53 @@
                 <div class="tab-box">
                     <div id="orders" class="tabcontent">
                         <h3>Orders</h3>
-                        <p>This is orders section.</p>
-                        {% for order in orders %}
-                            {{order}}
-                        {% endfor %}
+                        <div class="orders-list">
+                            {% for order in orders %}
+                            <div class="order-box" id="order-{{order.id}}">
+                                <div class="card-head">
+                                    <div class="order-id bold">
+                                        Order ID: {{order.id}}
+                                    </div>
+                                    <div class="status bold">
+                                        {% if order.is_complete and order.status == 'payed' %}
+                                            Complete
+                                        {% else %}
+                                            {% if not order.is_complete and order.status == 'pending' %}
+                                                Pending
+                                            {% endif %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="order-dishes">
+                                        {% for item in orderItems %}
+                                        {% if item.order.id == order.id %}
+                                        <span>
+                                            {{item.quantity}} x {{item.orderItem.dish}},
+                                        </span>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                    <div class="order-bill">
+                                        <span class="bold"> TOTAL BILL: </span> 
+                                        <span>&#8377; {{order.get_bill}}</span>
+                                    </div>
+                                    <div class="order-time">
+                                        <span class="bold">ORDERED ON:</span>
+                                        <span>Lorem ipsum dolor sit.</span>
+                                    </div>
+                                </div>
+                                <div class="card-bottom">
+                                    {% if not order.is_complete and order.status == 'pending' %}
+                                        <a href={% url 'home:check-out' %}><button class="Pay btn btn-primary">Proceed to pay</button></a>
+                                    {% else %}
+                                        <a href=""><button class="reorder">Re-order</button></a>
+                                        <a href="{% url 'order:order-view' order.id %}"><button class="view-details">View Details</button></a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
                     </div>
 
                     <div id="reservations" class="tabcontent">

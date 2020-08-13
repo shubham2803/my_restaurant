@@ -113,3 +113,71 @@
   padding: 0.5em 1em;
   font-size: 12px;
 }
+
+.orders-list {
+  display: flex;
+  justify-content : space-between;
+  /* border: 2px solid black; */
+  flex-wrap: wrap;
+  /* padding: 2rem; */
+  /* box-shadow: 2px 2px 6px; */
+  color: #6c757d;
+}
+
+.order-box {
+  width: 40%;
+  border: 2px solid #d39e00;
+  padding: 0.2rem 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.order-box .card-head {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.2px solid rgba(0, 0, 0, 0.144);
+  padding-bottom: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.order-box .card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-box .card-content .order-bill {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-box .card-content .order-dishes>span {
+  font-style: italic;
+}
+
+.order-box .card-content .order-time {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content> button {
+  border: none;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.order-box .card-bottom {
+  margin-top: 0.5rem;
+  border-top: 0.2px solid rgba(0, 0, 0, 0.144);
+  padding-top: 0.2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-box .card-bottom>button {
+  margin-top: 0.5rem;
+  border-top: 0.2px solid rgba(0, 0, 0, 0.144);
+  padding-top: 0.2rem;
+  display: flex;
+  justify-content: space-between;
+}

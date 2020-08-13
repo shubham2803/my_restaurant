@@ -45,6 +45,7 @@ class TimeInput(forms.TimeInput):
 class BookingForm(forms.ModelForm):
     date = DateInput()
     time = TimeInput()
+
     class Meta:
         model = Reservation
         fields = ('name', 'date', 'time', 'phone', 'persons')

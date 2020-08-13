@@ -100,7 +100,7 @@ def completeOrder(request):
     user = request.user
     context = {}
     if user.is_authenticated:
-        order = Order.objects.get(customer=user, is_complete=False)
+        order = Order.objects.get(customer=user, is_complete=False, status='pending')
 
         response = client.order.create(dict(amount=order.get_bill*100,
                                             currency="INR",
@@ -146,11 +146,16 @@ def payment_status(request):
         status = client.utility.verify_payment_signature(params_dict)
 
         order.status = 'payed'
+        order.is_complete = True
         print(order.id)
         order.save()
         messages.success(request, 'order completed!')
         return render(request, 'order/order_summary.html', {'status': 'Payment Successful'})
     except:
+        order.is_complete = True
+        print(order.id)
+        order.save()
+        messages.success(request, 'Failed order completed!')
         return render(request, 'order/order_summary.html', {'status': 'Payment Faliure!!!'})
 
 
@@ -195,3 +200,31 @@ def orderStatusView(request, _id):
         }
 
 
+def orderView(request, id):
+    user = request.user
+    dishDict = {}
+    dishList = []
+
+    if not user.is_authenticated:
+        return redirect('login')
+
+    order = Order.objects.get(id=id)
+    orderItems = OrderItem.objects.filter(order=order)
+
+    for item in list(orderItems):
+        dishDict['dishName'] = item.orderItem.dish
+        dishDict['quantity'] = item.quantity
+        dishDict['dishCost'] = item.orderItem.cost
+        dishDict['dishTotal'] = item.get_total
+        dishList.append(dishDict)
+        dishDict = {}
+
+    context = {
+        'order': order,
+        'customer': user,
+        'dishes': dishList,
+        'total': order.get_bill,
+        'address': order.address,
+    }
+
+    return render(request, 'order/order-view.html', context)

@@ -50,23 +50,33 @@ def logInView(request):
 
 def profileView(request):
     user = request.user
-    context = {}
     if not user.is_authenticated:
         return redirect('login')
 
-    addressList = AddressList.objects.get(customer=user)
-    addresses = addressList.address.all()
-    orders = Order.objects.filter(customer=user)
+    try:
+        orders = Order.objects.filter(customer=user).order_by('-id')
+    except:
+        orders = None
+    try:
+        addressList = AddressList.objects.get(customer=user)
+        addresses = addressList.address.all()
+        print(addresses)
+    except:
+        addresses = None
+
     try:
         reservations = Reservation.objects.filter(customer=user)
     except:
         reservations = None
 
+    orderItems = OrderItem.objects.all()
+
     context = {
-        'addresses': addresses,
         'orders': orders,
+        'orderItems': orderItems,
         'reservations': reservations,
         'user': user,
+        'addresses': addresses
     }
     return render(request, 'accounts/profile.html', context)
 
