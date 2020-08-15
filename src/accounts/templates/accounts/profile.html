@@ -9,7 +9,17 @@
 <body>
     <section id="profile">
         <div id="profile-top">
-            <h5>{{user.first_name}} {{user.last_name}}</h5>
+            <div class="profile-head">
+                <div class="name">
+                    <h5>{{user.first_name}} {{user.last_name}}</h5>
+                </div>
+                <div class="edit">
+                    <a href="#">Edit</a>
+                </div>
+            </div>
+            <div>{{ user.email }}</div>
+            <div>{{ user.phone_no }}</div>
+            <div>{{ user.date_of_birth }}</div>
         </div>
 
         <div id="profile-box">
@@ -78,7 +88,41 @@
 
                     <div id="reservations" class="tabcontent">
                         <h3>Reservation</h3>
-                        <p>This is reservation section.</p>
+                        <div class="reservation-list">
+                            {% for item in reservations %}
+                            <div class="reservation-box">
+                                <div class="reservation-head">
+                                    <div class="reservation-id" id="reservation-{{item.id}}">
+                                        <span class="bold">Reservation ID : </span>
+                                        <span>{{item.id}}</span>
+                                    </div>
+                                </div>
+                                <div class="reservation-content">
+                                    <div class="reservation-name">
+                                        <span class="bold">Name: </span>
+                                        <span>{{ item.name }}</span>
+                                    </div>
+                                    <div class="reservation-datetime">
+                                        <div class="datetime-left">
+                                            <span class="bold">Date: </span>
+                                            <span>{{ item.date }}</span>
+                                        </div>
+                                        <div class="datetime-right">
+                                            <span class="bold">Time: </span>
+                                            <span>{{ item.time }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="reservation-person">
+                                        <span class="bold">Persons: </span>
+                                        <span>{{ item.persons }}</span>
+                                    </div>
+                                </div>
+                                <div class="reservation-foot">
+
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
                     </div>
 
                     <div id="addresses" class="tabcontent">

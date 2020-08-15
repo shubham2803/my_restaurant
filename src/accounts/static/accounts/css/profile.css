@@ -11,6 +11,15 @@
     padding: 5px 10px;
     /* height: 4rem; */
 }
+#profile-top .profile-head {
+  display: flex;
+}
+.profile-head .edit {
+  width: 3rem;
+  text-align: right;
+  text-decoration: none;
+}
+
 
 #profile-box {
     margin-top: 2em;
@@ -181,3 +190,36 @@
   display: flex;
   justify-content: space-between;
 }
+
+.reservation-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+  overflow-y: scroll;
+  height: 70vh;
+}
+
+.reservation-box {
+  width: 70%;
+  border: 2px solid #d39e00;
+  padding: 0.2rem 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.reservation-box .reservation-head {
+  border-bottom: 0.2px solid rgba(0, 0, 0, 0.144);
+}
+
+.reservation-box .reservation-content .reservation-datetime {
+  display: flex;
+  justify-content: space-between;
+  /* flex-direction: column; */
+}
+.reservation-box .reservation-content .reservation-datetime .reservation-right {
+  /* justify-self: center;
+  align-self: center;
+  align-content: center;
+  margin-right: 5rem; */
+}
+

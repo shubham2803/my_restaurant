@@ -4,11 +4,19 @@ from django.contrib import messages
 from .models import Reservation
 from .forms import BookingForm
 
+import datetime
+
+
 # Create your views here.
 
 
 def reservationView(request):
     user = request.user
+
+    past_reservation = []
+    today_reservation = []
+    future_reservation = []
+
     if user.is_authenticated:
         reservation = None
 
@@ -26,9 +34,24 @@ def reservationView(request):
                 return HttpResponseRedirect('/reservation/')
         else:
             form = BookingForm()
-        context = {
-            'reservation': reservation,
-            'form': form,
-        }
+
+    reservations = Reservation.objects.filter(customer=user)
+
+    for item in reservations:
+        if item.date > datetime.date.today():
+            future_reservation.append(item)
+        elif item.date < datetime.date.today():
+            past_reservation.append(item)
+        else:
+            today_reservation.append(item)
+
+    context = {
+        'reservation': reservation,
+        'past_reservations': past_reservation,
+        'current_reservations': today_reservation,
+        'future_reservations': future_reservation,
+        'form': form,
+
+    }
 
     return render(request, 'reservation/reservation.html', context)
