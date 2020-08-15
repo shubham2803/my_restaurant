@@ -1,2 +1,3 @@
 web: run this thing 
+web: gunicorn dep:app my_restraunt
 web: gunicorn my_restraunt.wsgi --log-file 
