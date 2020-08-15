@@ -37,25 +37,25 @@
             <div class="accordion" id="future-bookings">
                 <button class="top-accordion">Upcoming</button>
                 <div class="top-content">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis fuga ratione eveniet
-                        aliquid
-                        est ipsam.</p>
+                    {% for item in future_reservations %}
+                    <p>{{ item.name }}</p>
+                    {% endfor %}
                 </div>
             </div>
             <div class="accordion" id="current-bookings">
-                <button class="top-accordion">Current</button>
+                <button class="top-accordion">Today</button>
                 <div class="top-content">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis fuga ratione eveniet
-                        aliquid
-                        est ipsam.</p>
+                    {% for item in current_reservations %}
+                    <p>{{ item.name }}</p>
+                    {% endfor %}
                 </div>
             </div>
             <div class="accordion" id="past-bookings">
                 <button class="top-accordion">Past</button>
                 <div class="top-content">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis fuga ratione eveniet
-                        aliquid
-                        est ipsam.</p>
+                    {% for item in past_reservations %}
+                    <p>{{ item.name }}</p>
+                    {% endfor %}
                 </div>
             </div>
         </div>
