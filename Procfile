@@ -1,2 +1,3 @@
-web: gunicorn dep:app	
-web: gunicorn src.wsgi --log-file -
+web: gunicorn my_restraunt.wsgi:application --log-file - --log-level debug
+python manage.py collectstatic --noinput
+manage.py migrate
