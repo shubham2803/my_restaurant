@@ -1,1 +1,1 @@
-web: gunicorn my_restraunt/src.wsgi
+web: gunicorn src/src.wsgi
