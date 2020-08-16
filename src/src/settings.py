@@ -163,3 +163,6 @@ DATABASES['default'].update(prod_db)
 
 ALLOWED_HOSTS = ['my-restraunt.herokuapp.com/']
 
+import django_heroku
+django_heroku.settings(locals())
+
