@@ -143,18 +143,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-<<<<<<< HEAD
 
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-=======
-SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
-#STATICFILES_DIRS = (
-#  os.path.join(SITE_ROOT, '/static/'),
-#)
->>>>>>> f1836658b59c8dc2447fedcf8aa06a3d83c9e959
 
 MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'home/static/home/images')
